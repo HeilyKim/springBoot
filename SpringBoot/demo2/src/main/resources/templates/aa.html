@@ -1,0 +1,20 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"> <!--attribute 받기-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1 th:text="${data}">HALO</h1> <!--key-->
+<form>
+    <input type="text" name="num1">
+    -
+    <input type="text" name="num2">
+    <input type="submit" value="전송">
+</form>
+<h3 th:text="${result}"></h3> <!--key-->
+</body>
+</html>
