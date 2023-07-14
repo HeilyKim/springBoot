@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="product">
+    <select id="select" resultType="com.example3.Jul3.dto.ProductDTO">
+        select * from products
+    </select>
+    <insert id="insert" parameterType="com.example3.Jul3.dto.ProductDTO">
+        INSERT INTO products
+        (idx,name,price,quantity)
+        VALUES
+        (#{idx},#{name},#{price},#{quantity});
+    </insert>
+    <select id="selectRow" resultType="com.example3.Jul3.dto.ProductDTO">
+        select * from products where idx = #{idx}
+    </select>
+</mapper>

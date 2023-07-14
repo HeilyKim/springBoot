@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default_layout}">
+
+<th:block layout:fragment="css">
+    <style>
+<!--        div{-->
+<!--            background-color: cornflowerblue;-->
+<!--            margin:2rem;-->
+<!--            height: 100px;-->
+<!--            transition: all ease 2s 0s;-->
+<!--        }-->
+<!--        div:hover{-->
+<!--            transform: rotate(-45deg);-->
+<!--        }-->
+<!--        h1{-->
+<!--            animation: myf infinite;-->
+<!--            animation-duration: 3s;-->
+<!--        }-->
+<!--        #mycheck{-->
+<!--            display: none;-->
+<!--        }-->
+<!--        .myDiv{-->
+<!--            width: 100px;-->
+<!--            height: 100px;-->
+<!--            position: absolute;-->
+<!--            left: 0;-->
+<!--            animation: movemove infinite;-->
+<!--            animation-duration: 3s;-->
+<!--        }-->
+<!--        #mycheck:checked + div{ -->
+<!--            background-color: darksalmon;-->
+<!--            height: 300px;-->
+<!--            animation: 2s;-->
+<!--        }-->
+<!--        @keyframes myf{-->
+<!--            from {width: 50px;}-->
+<!--            to {width: 300px;}-->
+<!--        }-->
+<!--        @keyframes movemove{-->
+<!--            from {left: 0px; transform: rotate(0deg);}-->
+<!--            to {left: 300px; transform: rotate(360deg);}-->
+<!--        }-->
+
+    </style>
+</th:block>
+<th:block layout:fragment="script">
+    <script>
+            console.log("test");
+            $.ajax({
+                url:"http://127.0.0.1:5000/?alcohol=10&sugar=2&pH=3"
+                ,data:{}
+                ,success:function(result){
+                    if(result==[1.]){
+                        result('1데이터입니다?');
+                    }
+                }
+            })
+    </script>
+</th:block>
+<th:block layout:fragment="content">
+    <div class="container">
+        <div class="row m-3"> <!--위에 3칸 띄우기-->
+            <div class="col-2"></div> <!--슬라이더 앞 두칸-->
+            <div class="col-8" style="overflow:hidden; height: 300px"> <!--슬라이더 중간 두칸-->
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner rounded">
+                        <div class="carousel-item active">
+                            <img src="https://s.yimg.com/ny/api/res/1.2/mHea1F2yU8S1aKiOFAbU6w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTkwMDtoPTEyMDA-/https://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/f4130c376e8c1633b900e6006fea8d89"
+                                 class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://cdn.shopify.com/s/files/1/0551/4235/0907/files/13_When-you-see-your-human-Final_480x480.jpg?v=1646749193"
+                                 class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://preview.redd.it/r3lcc7gf64791.png?width=540&format=png&auto=webp&s=9d32ec46f884486fd59dfd01453bf5d07bf30d75"
+                                 class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-2"></div> <!--슬라이더 뒤 두칸-->
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10 d-flex">
+                <div class="card m-3 rounded" style="width: 18rem;">
+                    <img th:src="@{images/앵이프사.webp}" class="card-img-top" alt="cat1">
+                    <div class="card-body rounded" style="background-color: white">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card m-3" style="width: 18rem;">
+                    <img th:src="@{images/앵이프사2.webp}" class="card-img-top" alt="cat2">
+                    <div class="card-body rounded" style="background-color: white">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card m-3" style="width: 18rem;">
+                    <img th:src="@{images/고앵.jpg}" class="card-img-top" alt="cat3">
+                    <div class="card-body rounded" style="background-color: white">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--        <label for="mycheck">이거누르면</label>-->
+    <!--        <input type="checkbox" id="mycheck"/>-->
+    <!--        <div>-->
+    <!--            <h1>div</h1>-->
+    <!--            <p>hohohohohhorororoororo</p>-->
+    <!--            <div class="myDiv">-->
+    <!--                <h2>움직이는 공간</h2>-->
+    <!--            </div>-->
+    <!--        </div>-->
+</th:block>
+
+</html>
