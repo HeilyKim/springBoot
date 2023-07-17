@@ -16,14 +16,14 @@ public class MainController {
 
     @GetMapping("/")
     public String index() {
-        FreeBoard f1 = new FreeBoard().builder()
-                .name("홍길동")
-                .content("내요내욘ㅇ")
-                .build();
-
-        freeBoardRepository.save(f1); //insert가 자동으로 됨
-        List<FreeBoard> list = freeBoardRepository.findAll(); //테이블 모든 데이터 불러오기
-        System.out.println(list);
+//        FreeBoard f1 = new FreeBoard().builder()
+//                .name("홍길동")
+//                .content("내요내욘ㅇ")
+//                .build();
+//
+//        freeBoardRepository.save(f1); //insert가 자동으로 됨
+//        List<FreeBoard> list = freeBoardRepository.findAll(); //테이블 모든 데이터 불러오기
+//        System.out.println(list);
         return "index";
     }
 }

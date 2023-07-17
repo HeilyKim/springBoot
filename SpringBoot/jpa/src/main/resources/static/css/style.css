@@ -2,3 +2,10 @@
 *{
     font-family:'Quicksand', 'Noto Sans KR',sans-serif;
 }
+a{
+    text-decoration: none;
+    font-color: pink;
+}
+.btn{
+    background-color: pink;
+}
