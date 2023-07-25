@@ -10,11 +10,22 @@
 <th:block layout:fragment="script">
     <script>
             console.log("test");
+
     </script>
 </th:block>
 <th:block layout:fragment="content">
     <div class="container">
-        <h1>FreeBoard</h1>
+        <h1>FreeBoard🍕</h1>
+        <h1 th:text="${'총 페이지 수: '+totalPages}"></h1>
+        <h1 th:text="${'총 게시글 개수: '+totalElements}"></h1>
+        <div class="d-flex justify-content-end">
+            <form class="d-flex w-md-25 w-50" role="search">
+                <input class="form-control me-2" name="searchText"
+                       type="search" placeholder="Search" aria-label="Search">
+                <button class="btn" type="submit">Search</button>
+            </form>
+        </div>
+        <br>
         <table class="table">
             <thead>
             <tr>
@@ -28,13 +39,39 @@
             <tr th:each="board:${list}">
                 <td th:text="${board.idx}"></td>
                 <td th:text="${board.name}"></td>
-                <td >
+                <td>
                     <a th:href="@{/FreeBoard/View(idx=${board.idx})}" th:text="${board.title}"></a>
                 </td>
                 <td th:text="${#temporals.format(board.createdDate,'yyyy-MM-dd HH:mm')}"></td>
             </tr>
             </tbody>
         </table>
+        <div class="d-flex justify-content-center">
+            <div th:if="${totalElements != 0}">
+                <nav aria-label="pagination1">
+                    <ul class="pagination">
+                        <li class="page-item" th:classappend="${curPage==1}?'disabled'">
+                            <a class="page-link" th:href="@{/FreeBoard(page=${curPage-2})}">Previous</a>
+                        </li>
+                        <li class="page-item" th:each="i:${#numbers.sequence(1,totalPages)}">
+                            <a class="page-link" th:classappend="${i==curPage}? 'active'"
+                               th:href="@{/FreeBoard(page=${i-1})}" th:text="${i}">1</a></li>
+                        <!--                    <li class="page-item active" aria-current="page">-->
+                        <!--                        <a class="page-link" href="#">2</a>-->
+                        <!--                    </li>-->
+                        <!--                    <li class="page-item">-->
+                        <!--                        <a class="page-link" href="#">3</a>-->
+                        <!--                    </li>-->
+                        <li class="page-item" th:classappend="${curPage==totalPages}?'disabled'">
+                            <a class="page-link" th:href="@{/FreeBoard(page=${curPage})}">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div th:if="${totalElements == 0}">
+                <h2>검색 결과가 없습니다</h2>
+            </div>
+        </div>
         <a th:href="@{/FreeBoard/WriteForm}" class="btn">글쓰기</a>
     </div>
 </th:block>

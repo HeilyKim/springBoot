@@ -4,8 +4,11 @@
 }
 a{
     text-decoration: none;
-    font-color: pink;
 }
 .btn{
     background-color: pink;
+}
+.page-link{
+    background-color: pink;
+    color: white;
 }
